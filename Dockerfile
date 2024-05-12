@@ -18,6 +18,9 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
+ENV PORT 8080
+ENV HOST 0.0.0.0
+
 RUN npm ci --only=production
 
 COPY --from=builder /usr/src/app/dist ./dist
